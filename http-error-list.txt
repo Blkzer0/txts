@@ -1,0 +1,107 @@
+HTTP ~ERROR~ CODES
+--------------------
+
+100 continue
+101 switching protocals
+102 processing
+200 OK, Get/Post or success
+201 granted
+202 accepted
+203 nonauthoritive information (HTTP/1.1)
+204 no content
+205 reset content
+206 partical content (RFC 7233)
+207 Multi-status (RFC 4918)
+208 already reported (WebDAV, RFC 5842)
+226 IM used (RFC 3239)
+
+3xx Redirection
+----
+300 multiple choices
+301 moved permanently
+302 found
+303 see other (HTTP/1.1)
+304 not modified
+305 use proxy (HTTP/1.1)
+306 swtich proxy
+307 temporary redirect
+308 permanent redirection
+
+4xx Client Error
+----
+400 bad request
+401 unauthorized (RFC 7235)
+402 payment required
+403 forbidden
+404 not found
+405 method not allowed
+406 not acceptable
+407 proxy authentication required
+408 request timeout
+409 conflict
+410 gone
+411 lenght required
+412 precondition failed
+413 payload too large
+414 uri too large
+415 unsupported media type
+416 range not satisfiable
+417 expectation failed
+418 im a teapot
+421 misdirection request
+422 unprocessable entity
+423 locked (RFC 4918)
+424 failed dependency (RFC 4918)
+426 upgrade required
+428 preconditon requested (RFC 6585)
+429 too many requests    (RFC 6585)
+431 request header fields too large (RFC 6585)
+451 unavailable for legal reasons (internal draft)
+
+5xx Server Error
+----
+500 internal server error
+501 not implemented 
+502 bad gateway
+503 service unavailable 
+504 gateway timeout
+505 HTTP version not supported
+506 variant also negotiates (RFC 2295)
+507 insufficient storage (RFC 4918)
+508 loop detected (RFC 5842)
+510 not extended (RFC 2774)
+511 network authentication required (RFC 6585)
+
+XXX Unoffical Codes
+-------------------
+103 checkpoint
+420 method failure (spring framework)
+420 enchance your calm (twitter)
+450 blocked by windows parental controls
+498 invalid token
+499 token required
+509 bandwight limit exceeded (apache/cpanel)
+
+XXX Internet Information Services
+---------------------------------
+440 Login timeout 
+449 retry with
+451 redirect
+
+XXX Nginx
+---------
+444 no response
+495 SSL certificate error
+496 SSL certificate required
+497 HTTP request set to HTTPS port
+499 client closed request
+
+XXX Cloudflare
+--------------
+520 unknown error
+521 web server is down
+522 connection timed out
+523 origin is unreachable
+524 a timeout occured
+525 SSL handshake failed
+526 invalid SSL certificate
