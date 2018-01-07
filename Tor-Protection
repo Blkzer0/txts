@@ -1,0 +1,30 @@
+set network.http.sendrefererheader to flase
+set  media.peerconnection.enabled to flase
+set geo.enabled to false
+
+
+1. Secure NoScript:
+1. Goto 'NoScript Options > Whitelist' and remove everything in the list.
+2. Make sure 'Scripts Globally Allowed' is not ticked.
+3. Goto 'NoScript Options > Embeddings', tick everything except 'No placeholder for..' and 'Collapse blocked objects'
+4. Goto 'NoScript Options > Advanced > XSS', remove all Anti-XSS Protection Exceptions
+
+2. Install RequestPolicy Continued
+This addon is even more important than NoScript, it allows Tor Browser to block all external resources by default (image, video, script, font that is not on the same domain), until you explicitly allow each external domain to be loaded.
+
+The old RequestPolcy has not been updated for many years, RequestPolicy Continued has taken its place.
+
+https://addons.mozilla.org/en-US/firefox...src=search
+
+Once installed, a config page may show up, do not subscribe to any subscriptions and just close the page, goto about:requestpolicy?defaultpolicy and set Default Policy to 'Block requests by default'.
+
+3. Disable auto updates
+Go to about:config, set:
+app.update.auto to 'false'
+app.update.enabled to 'false'
+extensions.update.autoUpdateDefault to 'false'
+
+4. Protect Tor browser from font exploits:
+1. Goto about:config and change both 'gfx.downloadable_fonts.enabled' and 'gfx.downloadable_fonts.woff2.enabled' to 'false'
+2. Remove all whitelisted sites such as google.com from NoScript
+3. Install RequestPolicy Continued to block every external webpage resource by default.
