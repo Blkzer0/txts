@@ -1,0 +1,10 @@
+This quickfix is good for when your initframfs-tools stop working due to low space on /boot. 
++This is for Debian based systems.
+
+sudo rm -f /var/lib/dpkg/info/initramfs-tools.post*
+sudo rm -f /var/lib/dpkg/info/initramfs-tools.pre*
+sudo rm -f /var/lib/dpkg/info/bcmwl-kernel-source.post*
+sudo rm -f /var/lib/dpkg/info/bcmwl-kernel-source.pre*
+
+sudo dpkg --configure -a 
+sudo apt update && upgrade
