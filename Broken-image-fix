@@ -1,0 +1,90 @@
+Ripped from some form online
+--------------------------
+Boot your machine with a Live Media
+
+You can easily run a terminal console by pressing Ctrl+ Alt +T in Ubuntu or you can switch to tty1 by pressing Ctrl+ Alt+f1. What we need to do is, we need to mount our the filesystem from our Hard Disk. For that, we need to know the device path. To get the device path you the need to run:
+--------------------------
+    $ sudo fdisk -l
+
+Mount the filesystems
+--------------------------
+The filesystem we need to mount the hard disk's partitions such as / (root), /boot, /var and should mount bind  /sys, /proc and /dev under a directory /mnt. So, that can be done by steps below:
+
+    $ sudo mount /dev/sdaX /mnt
+
+Note: Here in /dev/sdaX, X refers to the partition number 1 in my case.
+
+    $ sudo mount --bind /dev /mnt/dev
+
+    $ sudo mount --bind /proc /mnt/proc
+
+    $ sudo mount --bind /sys /mnt/sys
+--------------------------
+ 
+Chroot /mnt and creating a Backup of the initrd image
+
+Now, we need to chroot /mnt so that we can setup chrooted environment for the Hard Disk's partition.
+
+    $ sudo chroot /mnt
+
+--------------------------
+After Chroot is done, we will be backing up the image file of initrd, you can see the image files under /boot.
+
+    # ls /boot/*initrd*
+
+    or
+
+    # ls /lib/modules/
+
+kernel-module
+
+You will be able to get the version of the kernel you have currently in the system from the above command.
+
+Consider replacing version 3.11.0.12-generic with the own you got from above command.
+
+    # mv /boot/initrd.img-3.11.0.12-generic /boot/old-initrd.img-3.11.0.12-generic-old
+
+Note: the file format of the initrd image may differ from Ubuntu to Fedora Based Systems.
+
+If your initrd image has been deleted, you won't be able to run the above command hence, can't create its backup.
+--------------------------
+Building Initrd Image
+
+Now, the real stuff is here. We are gonna build the initrd kernel image here using the command below:
+
+    # mkinitrd /boot/initrd.img-3.11.0.12-generic 3.11.0.12-generic-old
+
+The above command works for the other distributions like CentOS, Fedora, Red Hat,etc not for Ubuntu
+
+For Ubuntu Based Distribution:
+
+    # update-initramfs -c -k 3.11.0.12-generic
+
+update-initramfs
+--------------------------
+Finalizing Grub Loader and unmounting
+
+We will go for unmounting the mounted path as:
+
+If your system has Fedora, RHEL, CentOS installed, try this:
+
+    # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+If your system has Ubuntu and its derivative installed:
+
+    # update-grub
+
+    # exit
+
+grub-update
+--------------------------
+Now, we have successfully left our Chroot Environment.
+
+    $ sudo umount /dev
+
+    $ sudo umount /proc
+
+    $ sudo umount /sys
+
+    $ sudo umount /mnt
+--------------------------
