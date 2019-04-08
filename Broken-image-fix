@@ -1,31 +1,15 @@
 Ripped from some form online
 --------------------------
 Boot your machine with a Live Media
-
-You can easily run a terminal console by pressing Ctrl+ Alt +T in Ubuntu or you can switch to tty1 by pressing Ctrl+ Alt+f1. What we need to do is, we need to mount our the filesystem from our Hard Disk. For that, we need to know the device path. To get the device path you the need to run:
---------------------------
-    $ sudo fdisk -l
-
-Mount the filesystems
---------------------------
-The filesystem we need to mount the hard disk's partitions such as / (root), /boot, /var and should mount bind  /sys, /proc and /dev under a directory /mnt. So, that can be done by steps below:
-
-    $ sudo mount /dev/sdaX /mnt
-
-Note: Here in /dev/sdaX, X refers to the partition number 1 in my case.
-
-    $ sudo mount --bind /dev /mnt/dev
-
-    $ sudo mount --bind /proc /mnt/proc
-
-    $ sudo mount --bind /sys /mnt/sys
---------------------------
- 
-Chroot /mnt and creating a Backup of the initrd image
-
-Now, we need to chroot /mnt so that we can setup chrooted environment for the Hard Disk's partition.
-
-    $ sudo chroot /mnt
+Open terminal and type: 
+    
+    sudo cryptsetup luksOpen /dev/sda5 sda5_crypt #In case you're drive is encryted 
+    sudo vgscan --mknodes
+    sudo vgchange -ay
+    sudo mount /dev/mapper/ubuntu--vg-root /mnt
+    sudo mount /dev/sda1 /mnt/boot
+    for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+    sudo chroot /mnt
 
 --------------------------
 After Chroot is done, we will be backing up the image file of initrd, you can see the image files under /boot.
