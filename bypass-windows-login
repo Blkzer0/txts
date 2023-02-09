@@ -1,0 +1,17 @@
+start the pc, wait for the loading screen to show that spinning circle.
+shutdown the computer, and do this until it starts saying " preparing automatic recovery"
+Next you go to troubleshoot the pc, > advacned options > System image recovery.
+You;ll be taken to the system recovery menu, cancel out of the first prompt, 
+make sure the selection is set to "Select a system image"
+Next click on Advanced... and select "Install a driver". click "ok" at the next prompt
+The next prompt will ask you to browse to find a file. 
+Find the file "Utilman" in directory /Windows/System32/
+Once you find it, rename it to something else like utilmanbak.
+Next find the "cmd" file. rename it to "utilman". make sure to refresh the page to ensure the filename changes were applied. 
+next exit out of the menu and click start pc as normal.
+Once the pc boots up to the login, click on the "accessibility" icon, it will open up the command prompt instead.
+type in first net users to see the listed accounts.
+find the main admin account and type in: net user username password, hit enter several time until you get the message that the command was successful.
+next try logging in with the new password.
+
+#tested on Windows 10 & 11
